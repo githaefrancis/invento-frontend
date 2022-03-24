@@ -6,7 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Invento App</title>
 </head>
-<body>
-  Welcome to the inventory app
+<body class="container-fluid">
+  
+<div class="row" *ngFor="let item of equipment">
+
+  <!-- <p class="text-danger" >{{item.equipment_name}} {{ item.equipment_code }}</p> -->
+
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of equipment">
+      <th scope="row">1</th>
+      <td>{{item.equipment_name}}</td>
+      <td>{{item.equipment_code }}</td>
+      <td>{{item.equipment_model}}</td>
+    </tr>
+    <!-- <div class="row" *ngFor="let employee of employees">
+
+      <p class="text-danger" >{{employee.employee_fname}} {{ employee.employee_lname }}</p>
+    
+    </div> -->
+  </tbody>
+</table>
+
+
 </body>
 </html>

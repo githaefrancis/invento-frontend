@@ -8,12 +8,20 @@ import { Employee } from '../employee-class/employee';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-
+  equipment:any
   constructor(private inventoryService:InventoryService) { }
 
   ngOnInit(): void {
 
-    this.inventoryService.FetchInventory()
+    // this.inventoryService.FetchInventory()
+
+    this.inventoryService.getEmployees().subscribe(
+      (data)=>{
+        this.equipment=data
+        console.log(this.equipment)
+      }
+    )
+    
   }
 
 }
