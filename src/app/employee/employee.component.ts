@@ -10,7 +10,7 @@ import { Department } from '../department-class/department';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  employees!:Employee[]
+  employees!:any[]
   departments!:Department[]
 
 
@@ -22,7 +22,7 @@ export class EmployeeComponent implements OnInit {
       'department':new FormControl('Pick department',Validators.required)
     }
   )
-  newEmployee=new Employee('','',1)
+  newEmployee=new Employee(1,'','',1)
   constructor(private inventoryService:InventoryService) { }
 
 

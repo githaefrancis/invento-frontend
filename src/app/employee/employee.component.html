@@ -78,15 +78,15 @@
         <th scope="col">#</th>
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
-        <th scope="col"></th>
+        <th scope="col">Department</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let employee of employees">
-        <th scope="row shadow">1</th>
+        <th scope="row shadow">{{employee.id}}</th>
         <td>{{employee.employee_fname}}</td>
         <td>{{employee.employee_lname}}</td>
-        <td>{{employee.department}}</td>
+        <td>{{employee.department_name}}</td>
       </tr>
       <!-- <div class="row" *ngFor="let employee of employees">
   
