@@ -9,9 +9,21 @@ import { InventoryService } from '../http-client/inventory.service';
 })
 export class DepartmentComponent implements OnInit {
   departments!:Department[]
-  constructor() { }
+  constructor(private inventoryService:InventoryService) { }
 
   ngOnInit(): void {
+
+    this.inventoryService.getDepartments().subscribe((data)=>{
+
+      this.inventoryService.getDepartments().subscribe(
+      (data)=>{
+        this.departments=data
+        console.log(this.departments)
+      }
+    )
+    });
+
+
   }
 
 }

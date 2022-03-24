@@ -11,18 +11,19 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" (click)="closePopup()" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" (click)="closePopup()" class="btn-close" data-dismiss="modal" aria-label="Close">
+          <!-- <span aria-hidden="true">&times;</span> -->
         </button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="employeeForm">
+        <form [formGroup]="employeeForm" (ngSubmit)="addEmployee()">
           <div class="form-group d-flex flex-column"> 
            <input type="text" formControlName="firstName"
           class="form-control mb-2"
           id="firstName"
           name="firstName"
           placeholder="First Name"
+          [(ngModel)]="newEmployee.employee_fname"
           required
           
           >
@@ -31,28 +32,39 @@
           id="lastName"
           name="lastName"
           placeholder="First Name"
+          [(ngModel)]="newEmployee.employee_lname"
+
           required
           
           >
           
-          <input type="Number" formControlName="department"
+          <!-- <input type="Number" formControlName="department"
           class="form-control mb-2"
           id="department"
           name="department"
           placeholder="department"
           required
           
-          >
+          > -->
+
+          <select name="department" id="department" class="form-control mb-2" [(ngModel)]="newEmployee.department"  formControlName="department"  >
+            <!-- <option [ngValue]="null" disabled>Pick department</option> -->
+            <option *ngFor="let department of departments" [ngValue]="department.id">
+
+              {{department.department_name}}
+            </option>
+
+          </select>
         </div>
    
           <button type="submit" id="submitEmployee" class="btn btn-success">Add</button>
 
         </form>
       </div>
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <button type="button" (click)="closePopup()" class="btn btn-secondary" data-dismiss="modal">Close</button>
        
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -60,18 +72,18 @@
 
 
   <button class="btn btn-dark my-3" type="button" (click)="openPopup()">New</button>
-  <table class="table">
+  <table class="table table-borderless">
     <thead>
-      <tr>
+      <tr class="shadow-3 bg-primary text-white rounded-2">
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
         <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let employee of employees">
-        <th scope="row">1</th>
+        <th scope="row shadow">1</th>
         <td>{{employee.employee_fname}}</td>
         <td>{{employee.employee_lname}}</td>
         <td>{{employee.department}}</td>
