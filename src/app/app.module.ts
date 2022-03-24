@@ -11,6 +11,8 @@ import { AllocationComponent } from './allocation/allocation.component';
 import { ConsumptionComponent } from './consumption/consumption.component';
 import { DepartmentComponent } from './department/department.component';
 import { CategoryComponent } from './category/category.component'
+import {FormsModule,ReactiveFormsModule} from '@angular/forms'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,9 @@ import { CategoryComponent } from './category/category.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

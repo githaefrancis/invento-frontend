@@ -11,6 +11,13 @@ export class InventoryService {
   constructor(private http:HttpClient) { 
 
     this.employees=[]
+    interface CategoryResponse{
+
+      id:string;
+      category_name:string;
+      category_description:string;
+  
+    }
 
   }
 
@@ -26,6 +33,10 @@ getEmployees():Observable<any[]>{
   return this.http.get<any[]>('http://127.0.0.1:8000/api/employees/')
 }
 
+getCategories():Observable<any[]>{
+  return this.http.get<any[]>('http://127.0.0.1:8000/api/category/')
+
+}
 
 }
 

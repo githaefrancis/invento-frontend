@@ -1,1 +1,89 @@
-<p>category works!</p>
+<body class="container-fluid">
+  
+  <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<!-- <div class="modal" id="AddEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" (click)="closePopup()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="employeeForm">
+          <div class="form-group d-flex flex-column"> 
+           <input type="text" formControlName="firstName"
+          class="form-control mb-2"
+          id="firstName"
+          name="firstName"
+          placeholder="First Name"
+          required
+          
+          >
+          <input type="text" formControlName="lastName"
+          class="form-control mb-2"
+          id="lastName"
+          name="lastName"
+          placeholder="First Name"
+          required
+          
+          >
+          
+          <input type="Number" formControlName="department"
+          class="form-control mb-2"
+          id="department"
+          name="department"
+          placeholder="department"
+          required
+          
+          >
+        </div>
+   
+          <button type="submit" id="submitEmployee" class="btn btn-success">Add</button>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="closePopup()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+  <!-- <button class="btn btn-dark my-3" type="button" (click)="openPopup()">New</button> -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of categories">
+        <th scope="row">{{category.id}}</th>
+        <!-- <td>{{category.id}}</td> -->
+        
+        <td>{{category.category_name}}</td>
+        <td>{{category.category_description}}</td>
+      </tr>
+      <!-- <div class="row" *ngFor="let employee of employees">
+  
+        <p class="text-danger" >{{employee.employee_fname}} {{ employee.employee_lname }}</p>
+      
+      </div> -->
+    </tbody>
+  </table>
+  
+  
+  </body>
