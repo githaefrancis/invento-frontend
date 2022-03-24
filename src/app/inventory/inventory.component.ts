@@ -15,7 +15,7 @@ export class InventoryComponent implements OnInit {
 
     // this.inventoryService.FetchInventory()
 
-    this.inventoryService.getEmployees().subscribe(
+    this.inventoryService.getEquipment().subscribe(
       (data)=>{
         this.equipment=data
         console.log(this.equipment)
