@@ -28,6 +28,15 @@ getEquipment():Observable<any[]>{
   return this.http.get<any[]>('http://127.0.0.1:8000/api/equipment/')
 }
 
+getAvailableEquipment():Observable<any[]>{
+
+  return this.http.get<any[]>('http://127.0.0.1:8000/api/equipment/available')
+}
+
+returnEquipment(id:any,payload:any):Observable<any>{
+  return this.http.put<any>(`http://127.0.0.1:8000/api/allocation/${id}/`,payload)
+}
+
 addEmployee(employee:any):Observable<any>{
   return this.http.post<any>('http://127.0.0.1:8000/api/employees/',employee)
 }

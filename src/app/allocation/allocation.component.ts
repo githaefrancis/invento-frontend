@@ -64,7 +64,7 @@ export class AllocationComponent implements OnInit {
         this.employees=data
       }
     )
-    this.inventoryService.getEquipment().subscribe(
+    this.inventoryService.getAvailableEquipment().subscribe(
       (data)=>{
         this.equipments=data
       }
@@ -80,6 +80,30 @@ openPopup(){
 
 closePopup(){
   this.displayStyle="none";
+}
+
+public returnEquipment(id:any){
+  console.log(id);
+
+  let confirmReturn=confirm('User has returned Equipment?');
+  // if (confirmReturn){
+
+  //   this.inventoryService.returnEquipment(id,{'is_returned':true})
+  //   alert('Equipment has been returned')
+  // }
+
+  if (confirmReturn){
+
+  let payload={'is_returned':true};
+
+
+  this.inventoryService.returnEquipment(id,payload).subscribe((data)=>{
+    alert('Equipment has been returned')
+    
+    this.fetchAllocations()
+    
+  })
+}
 }
 
 }

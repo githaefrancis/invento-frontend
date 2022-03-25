@@ -14,9 +14,9 @@
 
 </div>
 
-<table class="table">
+<table class="table table-responsive mt-2 align-middle">
   <thead>
-    <tr>
+    <tr class="shadow-3 bg-primary text-white rounded-2">
       <th scope="col">#</th>
       <th scope="col">Image</th>
 
@@ -24,19 +24,24 @@
       <th scope="col">Code</th>
       <th scope="col">Model</th>
       <th scope="col">Category</th>
+      <th scope="col">Availability</th>
+
+      
 
 
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let item of equipment">
-      <th scope="row">{{item.id}}</th>
+      <th scope="row">{{equipment.indexOf(item) + 1}}</th>
       <td><img src="https://res.cloudinary.com/dgfuzu7mt/{{item.equipment_image}}" alt="" class="img-fluid"> </td>
 
       <td>{{item.equipment_name}}</td>
       <td>{{item.equipment_code }}</td>
       <td>{{item.equipment_model}}</td>
       <td>{{item.category_name}}</td>
+      <td *ngIf="item.available==true"><span class="badge bg-primary fs-4">Available</span> </td>
+      <td *ngIf="item.available==false"><span class="badge bg-secondary fs-4">Assigned</span> </td>
 
     </tr>
     <!-- <div class="row" *ngFor="let employee of employees">
