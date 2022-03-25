@@ -1,1 +1,84 @@
-<p>allocation works!</p>
+<body class="container-fluid">
+  
+  <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal" id="AddEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" (click)="closePopup()" class="btn-close" data-dismiss="modal" aria-label="Close">
+          <!-- <span aria-hidden="true">&times;</span> -->
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="allocationForm" (ngSubmit)="addAllocation()">
+          <div class="form-group d-flex flex-column"> 
+           
+          
+          
+         
+          <select name="equipment" id="equipment" class="form-control mb-2" [(ngModel)]="newAllocation.equipment_allocated"  formControlName="equipment"  >
+            
+            <option *ngFor="let equipment of equipments" [ngValue]="equipment.id">
+
+              {{equipment.equipment_name}}
+            </option>
+
+          </select>
+
+          <select name="employee" id="employee" class="form-control mb-2" [(ngModel)]="newAllocation.employee_allocated"  formControlName="employee"  >
+            
+            <option *ngFor="let employee of employees" [ngValue]="employee.id">
+
+              {{employee.employee_fname}} {{employee.employee_lname}}
+            </option>
+
+          </select>
+        </div>
+   
+          <button type="submit" id="submitEmployee" class="btn btn-success">Add</button>
+
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" (click)="closePopup()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+
+  <button class="btn btn-dark my-3" type="button" (click)="openPopup()">New</button>
+  <table class="table table-borderless">
+    <thead>
+      <tr class="shadow-3 bg-primary text-white rounded-2">
+        <th scope="col">#</th>
+        <th scope="col">Employee Name</th>
+        <th scope="col">Equipment Name</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let allocation of allocations">
+        <!-- <th scope="row shadow">{{allocation.id}}</th> -->
+        <td>{{allocation.employee_allocated}}</td>
+        <td>{{allocation.equipment_allocated}}</td>
+        <!-- <td>{{employee.department_name}}</td> -->
+      </tr>
+      <!-- <div class="row" *ngFor="let employee of employees">
+  
+        <p class="text-danger" >{{employee.employee_fname}} {{ employee.employee_lname }}</p>
+      
+      </div> -->
+    </tbody>
+  </table>
+  
+  
+  </body>

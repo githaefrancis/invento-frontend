@@ -48,6 +48,14 @@ getDepartments():Observable<any[]>{
 
 }
 
+getAllocations():Observable<any[]>{
+  return this.http.get<any[]>('http://127.0.0.1:8000/api/allocation/')
+}
+
+addAllocation(allocation:any):Observable<any>{
+  return this.http.post<any>('http://127.0.0.1:8000/api/allocation/',allocation)
+}
+
 }
 
 
