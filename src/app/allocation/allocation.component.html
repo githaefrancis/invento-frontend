@@ -1,5 +1,5 @@
 <body class="container-fluid">
-  
+  <h2 class="text-center">Equipment Allocations</h2>
   <!-- Button trigger modal -->
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
@@ -56,11 +56,13 @@
 
 
   <button class="btn btn-dark my-3" type="button" (click)="openPopup()">New</button>
-  <table class="table table-borderless">
+  <table class="table table-striped">
     <thead>
       <tr class="shadow-3 bg-primary text-white rounded-2">
         <th scope="col">#</th>
+        <th scope="col">Allocation Date</th>
         <th scope="col">Employee Name</th>
+        <th scope="col">Equipment Code</th>
         <th scope="col">Equipment Name</th>
         <th scope="col">Serial Number </th>
         <th scope="col">Action </th>
@@ -70,7 +72,9 @@
     <tbody>
       <tr *ngFor="let allocation of allocations">
         <th scope="row shadow">{{ allocations.indexOf(allocation) +1 }}</th>
+        <td>{{allocation.allocation_date}}</td>
         <td>{{allocation.employee_fname}} {{allocation.employee_lname}}</td>
+        <td>{{allocation.equipment_code}}</td>
         <td>{{allocation.equipment_name}}</td>
         <td>{{allocation.equipment_serial_number}}</td>
         <td *ngIf="allocation.is_returned==false"><button class="btn bg-dark text-white" (click)="returnEquipment(allocation.id)">Return</button></td>

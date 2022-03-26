@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {Employee} from '../employee-class/employee'
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InventoryService {
+  
+  baseUrl:string=environment.baseUrl
   employees!:Employee[];
   constructor(private http:HttpClient) { 
 
@@ -25,44 +28,44 @@ export class InventoryService {
 
 getEquipment():Observable<any[]>{
 
-  return this.http.get<any[]>('http://127.0.0.1:8000/api/equipment/')
+  return this.http.get<any[]>(`${this.baseUrl}/api/equipment/`)
 }
 
 getAvailableEquipment():Observable<any[]>{
 
-  return this.http.get<any[]>('http://127.0.0.1:8000/api/equipment/available')
+  return this.http.get<any[]>(`${this.baseUrl}/api/equipment/available`)
 }
 
 returnEquipment(id:any,payload:any):Observable<any>{
-  return this.http.put<any>(`http://127.0.0.1:8000/api/allocation/${id}/`,payload)
+  return this.http.put<any>(`${this.baseUrl}/api/allocation/${id}/`,payload)
 }
 
 addEmployee(employee:any):Observable<any>{
-  return this.http.post<any>('http://127.0.0.1:8000/api/employees/',employee)
+  return this.http.post<any>(`${this.baseUrl}/api/employees/`,employee)
 }
 
 
 getEmployees():Observable<any[]>{
 
-  return this.http.get<any[]>('http://127.0.0.1:8000/api/employees/')
+  return this.http.get<any[]>(`${this.baseUrl}/api/employees/`)
 }
 
 getCategories():Observable<any[]>{
-  return this.http.get<any[]>('http://127.0.0.1:8000/api/category/')
+  return this.http.get<any[]>(`${this.baseUrl}/api/category/`)
 
 }
 getDepartments():Observable<any[]>{
-  return this.http.get<any[]>('http://127.0.0.1:8000/api/departments/')
+  return this.http.get<any[]>(`${this.baseUrl}/api/departments/`)
 
 
 }
 
 getAllocations():Observable<any[]>{
-  return this.http.get<any[]>('http://127.0.0.1:8000/api/allocation/')
+  return this.http.get<any[]>(`${this.baseUrl}/api/allocation/`)
 }
 
 addAllocation(allocation:any):Observable<any>{
-  return this.http.post<any>('http://127.0.0.1:8000/api/allocation/',allocation)
+  return this.http.post<any>(`${this.baseUrl}/api/allocation/`,allocation)
 }
 
 }
